@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, "mainApp/html/data.html")
+
+def index(request):
+    return render(request, "mainApp/html/data.html")
