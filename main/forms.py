@@ -1,8 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
-
-
 from django.contrib.auth.models import User
+
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -18,3 +17,9 @@ class UserRegistrationForm(forms.ModelForm):
         if cd['password'] != cd['password2']:
             raise forms.ValidationError('Passwords don\'t match.')
         return cd['password2']
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError('This email is already registered')
+        return email
