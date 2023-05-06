@@ -1,9 +1,5 @@
-from django.shortcuts import redirect
 from django.shortcuts import render
 from .forms import UserRegistrationForm
-from .models import Person
-
-
 
 # Create your views here.
 
@@ -18,21 +14,15 @@ def about(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            user = Person.objects.create_user(
-                username=form.cleaned_data['username'],
-                email=form.cleaned_data['email'],
-                password=form.cleaned_data['password'],
-            )
-            user.save()
-            return redirect('registration_success')
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            # Create a new user object but avoid saving it yet
+            new_user = user_form.save(commit=False)
+            # Set the chosen password
+            new_user.set_password(user_form.cleaned_data['password'])
+            # Save the User object
+            new_user.save()
+            return render(request, 'mainApp/html/registration_success.html', {'new_user': new_user})
     else:
-        form = UserRegistrationForm()
-    return render(request, 'mainApp/html/register.html', {'form': form})
-
-
-def registration_success(request):
-    return render(request, 'mainApp/html/registration_success.html')
-
-
+        user_form = UserRegistrationForm()
+    return render(request, 'mainApp/html/register.html', {'user_form': user_form})
