@@ -1,0 +1,70 @@
+.regPopup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+.close-butt{
+    position: absolute;
+    top: 0;
+}
+.button-content{
+    display: flex;
+
+}
+.popup-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 300px;
+    background: #68C9BA;
+    border-radius: 30px;
+    width: 600px;
+    padding: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup-title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 160%;
+}
+input{
+    font-size: 25px;
+    margin-top:20px;
+    text-align: center;
+    padding: 10px;
+}
+.popup-butt{
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: #9C69E2;
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 25px;
+}
+.butt{
+    color: #FFFFFF;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#popup:target{
+    opacity: 1;
+    visibility: visible;
+}
+.popup-close{
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: #9C69E2;
+}
+.popup-text{
+    margin-top: 20px;
+}
