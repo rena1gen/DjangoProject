@@ -1,7 +1,8 @@
-<!-- registration/register.html -->
-<form method="post">
+{% block content %}
+  <h2>Регистрация нового пользователя</h2>
+  <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
-
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+{% endblock %}

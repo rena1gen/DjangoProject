@@ -1,25 +1,18 @@
 from django import forms
-from django.core.exceptions import ValidationError
-from django.contrib.auth.models import User
+from .models import MyUser
 
-
-
-class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+class RegistrationForm(forms.ModelForm):
+    email = forms.EmailField(required=True, label='Email')
+    password = forms.CharField(widget=forms.PasswordInput(), label='Пароль')
+    username = forms.CharField(required=False, label='Имя пользователя')
 
     class Meta:
-        model = User
-        fields = ('username', 'first_name', 'email')
+        model = MyUser
+        fields = ('email', 'password', 'username')
 
-    def clean_password2(self):
-        cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Passwords don\'t match.')
-        return cd['password2']
-
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if User.objects.filter(email=email).exists():
-            raise forms.ValidationError('This email is already registered')
-        return email
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password"])
+        if commit:
+            user.save()
+        return user
