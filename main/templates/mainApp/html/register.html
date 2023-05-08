@@ -1,19 +1,56 @@
-<!-- registration/register.html -->
+{#<!-- registration/register.html -->#}
 {% load static %}
-<form method="post">
-     <link rel="stylesheet" href="{% static 'css/reg.css' %}">
-    <div class="popup-content">
+{#<form method="post">#}
+{#     <link rel="stylesheet" href="{% static 'css/reg.css' %}">#}
+{#    <div class="popup-content">#}
+{#                <div class="popup-title">#}
+{#                    Регистрация#}
+{#    </div><div class="popup-text">#}
+{#    {% csrf_token %}#}
+{#    {% for f in form %}#}
+{#        <p><div class = "popup-text" for ="{{ f.id_for_label }}">{{ f.label }}:</div></p>#}
+{#        <div class = "form-error">{{ f.errors }}</div>#}
+{#        {% endfor %}#}
+{#    <div class="popup-butt">#}
+{#        <button type="submit">Зарегестрироваться</button>#}
+{#                    <a class = "butt" <button type="submit">Зарегестрироваться</button></a>#}
+{#                    </div>#}
+{#</form>#}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="popup-content">
                 <div class="popup-title">
                     Регистрация
     </div><div class="popup-text">
-    {% csrf_token %}
-    {% for f in form %}
-        <p><div class = "popup-text" for ="{{ f.id_for_label }}">{{ f.label }}:</div></p>
-        <div class = "form-error">{{ f.errors }}</div>
+        {% for field in form %}
+        <div class="form-group">
+            {{field.label_tag}}
+            <div>{{field}}</div>
+            {% if field.errors%}
+            {% for error in field.errors %}
+            <div class="alert alert-danger">
+                {{error}}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
         {% endfor %}
-    <div class="popup-butt">
-        <button type="submit">Зарегестрироваться</button>
-                    <a class = "butt" <button type="submit">Зарегестрироваться</button></a>
-                    </div>
-</form>
+        </div>
+        <input type="submit" value="Send" >
 
+    </form>
+
+</body>
+</html>
