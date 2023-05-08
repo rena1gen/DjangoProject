@@ -1,7 +1,19 @@
 <!-- registration/register.html -->
+{% load static %}
 <form method="post">
+     <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+    <div class="popup-content">
+                <div class="popup-title">
+                    Регистрация
+    </div><div class="popup-text">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
+    {% for f in form %}
+        <p><div class = "popup-text" for ="{{ f.id_for_label }}">{{ f.label }}:</div></p>
+        <div class = "form-error">{{ f.errors }}</div>
+        {% endfor %}
+    <div class="popup-butt">
+        <button type="submit">Зарегестрироваться</button>
+                    <a class = "butt" <button type="submit">Зарегестрироваться</button></a>
+                    </div>
 </form>
 

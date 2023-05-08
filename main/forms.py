@@ -9,9 +9,9 @@ class MyLoginForm(AuthenticationForm):
 
 
 class RegistrationForm(forms.ModelForm):
-    email = forms.EmailField(required=True, label='Email')
-    password = forms.CharField(widget=forms.PasswordInput(), label='Пароль')
-    username = forms.CharField(required=False, label='Имя пользователя')
+    email = forms.CharField(widget=forms.TextInput())
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'popup-text'}), label='Введите пароль')
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'popup-text'}),required=False, label='Имя пользователя')
 
     class Meta:
         model = User
