@@ -2,6 +2,7 @@
 @import url("IntroCss/intro.css");
 @import url("FeaturesCss/Features.css");
 @import url("FooterCss/footer.css");
+@import url("reg.css");
 
 *{
     margin: 0;

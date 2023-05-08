@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 from django.shortcuts import render
 from .models import Person
-from .forms import UserRegistrationForm
+from .forms import RegistrationForm
 
 
 
@@ -32,7 +32,7 @@ def about(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             # user = Person.objects.create_user(
             #     username=form.cleaned_data['username'],
@@ -42,11 +42,12 @@ def register(request):
             form.save()
             return redirect('registration_success')
     else:
-        form = UserRegistrationForm()
+        form = RegistrationForm()
     return render(request, 'mainApp/html/register.html', {'form': form})
 
 
 def registration_success(request):
     return render(request, 'mainApp/html/registration_success.html')
+
 
 
