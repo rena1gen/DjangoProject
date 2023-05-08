@@ -17,19 +17,6 @@ def about(request):
     return render(request, "mainApp/html/about.html")
 
 
-
-
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = UserRegisterForm(data=request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('registration_success')
-#         else:
-#             form = UserRegisterForm()
-#         return render(request, 'mainApp/html/register.html', {'form': form})
-
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)

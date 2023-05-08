@@ -2,9 +2,12 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 
+
 class MyLoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'autofocus': True}))
     password = forms.CharField(widget=forms.PasswordInput)
+
+
 class RegistrationForm(forms.ModelForm):
     email = forms.EmailField(required=True, label='Email')
     password = forms.CharField(widget=forms.PasswordInput(), label='Пароль')
