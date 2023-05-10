@@ -1,0 +1,11 @@
+{% block content %}
+  <h2>Создание задачи</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+    {% for message in task  %}
+    {{ message }}
+    {% endfor %}
+  </form>
+{% endblock %}

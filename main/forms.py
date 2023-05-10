@@ -1,6 +1,7 @@
 from django import forms
-from .models import MyUser
+from .models import MyUser,MyTask
 from django.contrib.auth.forms import AuthenticationForm
+
 
 class MyLoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'autofocus': True}))
@@ -20,3 +21,18 @@ class RegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+from .models import MyTask
+
+class MessageForm(forms.ModelForm):
+    text = forms.CharField(label='Описание', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите текст сообщения'}))
+
+    class Meta:
+        model = MyTask
+        fields = ['message']
+
+    def save(self, user, commit=True):
+        message1 = super(MessageForm, self).save(commit=False)
+        message1.user = user
+        if commit:
+            message1.save()
+        return message1
