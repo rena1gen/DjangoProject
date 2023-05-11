@@ -23,8 +23,8 @@ class RegistrationForm(forms.ModelForm):
         return user
 from .models import MyTask
 
+
 class MessageForm(forms.ModelForm):
-    text = forms.CharField(label='Описание', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите текст сообщения'}))
 
     class Meta:
         model = MyTask

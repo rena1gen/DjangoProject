@@ -34,6 +34,7 @@ def register(request):
         form = RegistrationForm()
     return render(request, 'mainApp/html/register.html', {'form': form})
 
+
 class MyTasks(View):
     form_class = MessageForm
     template_name = 'mainApp/html/message.html'
@@ -44,12 +45,13 @@ class MyTasks(View):
 
     def post(self, request):
         form = self.form_class(request.POST)
+        task = MyTask.objects.all()
         if form.is_valid():
             message = form.save(commit=False, user=request.user)
             message.user = request.user
             # привязываем сообщение к текущему пользователю
             message.save()
-            return render(request, self.template_name, {'form': MessageForm()})
+            return render(request, self.template_name, {'form': MessageForm(), 'task': task})
         return render(request, self.template_name, {'form': form})
 
 
