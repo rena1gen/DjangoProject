@@ -36,3 +36,4 @@ class MessageForm(forms.ModelForm):
         if commit:
             message1.save()
         return message1
+

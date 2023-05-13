@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login,logout
@@ -6,6 +7,8 @@ from .forms import RegistrationForm
 from .forms import MyLoginForm
 from .models import MyTask
 from .forms import MessageForm
+from .models import MyUser
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -29,7 +32,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             # Redirect to success page or login page
-            return redirect('mainApp/html/registration_success.html')
+            return redirect('login')
     else:
         form = RegistrationForm()
     return render(request, 'mainApp/html/register.html', {'form': form})
@@ -43,18 +46,18 @@ class MyTasks(View):
         form = self.form_class()
         return render(request, self.template_name, {'form': form})
 
+
     def post(self, request):
-        form = self.form_class(request.POST)
-        task = MyTask.objects.all()
-        if form.is_valid():
-            message = form.save(commit=False, user=request.user)
-            message.user = request.user
+        if request.method == 'POST':
+            form = MessageForm(request.POST)
+            task = MyTask.objects.filter(user=request.user)
+            if form.is_valid():
+                message = form.save(commit=False, user=request.user)
+                message.user = request.user
             # привязываем сообщение к текущему пользователю
-            message.save()
-            return render(request, self.template_name, {'form': MessageForm(), 'task': task})
+                message.save()
+                return render(request, self.template_name, {'form': MessageForm(), 'task': task})
         return render(request, self.template_name, {'form': form})
-
-
 
 
 def index(request):

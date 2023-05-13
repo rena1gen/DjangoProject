@@ -35,6 +35,6 @@ class MyUser(AbstractBaseUser):
         return self.email
 class MyTask(models.Model):
     message = models.CharField()
-    user = models.ForeignKey(MyUser,  on_delete=models.PROTECT)
+    user = models.ForeignKey(MyUser,  on_delete=models.CASCADE)
     def __str__(self):
         return self.message
