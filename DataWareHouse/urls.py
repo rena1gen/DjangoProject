@@ -28,6 +28,5 @@ urlpatterns = [
     path('login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),
     path('taskmanager', views.MyTasks.as_view(), name='taskmanager'),
-
+    path('delete-data/', views.MyTasks.delete_data, name='delete_data'),
 ]
-

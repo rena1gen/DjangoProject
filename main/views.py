@@ -17,7 +17,7 @@ def login_view(request):
             user = authenticate(request, email=form.cleaned_data['username'], password=form.cleaned_data['password'])
             if user is not None:
                 login(request, user)
-                return redirect('about')
+                return redirect('taskmanager')
     else:
         form = MyLoginForm(request)
     return render(request, 'mainApp/html/login.html', {'form': form})
@@ -58,6 +58,16 @@ class MyTasks(View):
                 message.save()
                 return render(request, self.template_name, {'form': MessageForm(), 'task': task})
         return render(request, self.template_name, {'form': form})
+
+    def delete_data(request):
+            user = request.user
+            data = MyTask.objects.filter(user=user)
+            if request.method == 'POST':
+                data.delete()
+            for task in data:
+                if task == task.delete():
+                    task.delete()
+            return redirect('taskmanager')
 
 
 def index(request):

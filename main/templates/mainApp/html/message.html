@@ -8,4 +8,14 @@
     {{ message }}
     {% endfor %}
   </form>
+  <h1>Delete Data</h1>
+  <form method="post" action="{% url 'delete_data' %}">
+    {% csrf_token %}
+    <input type="hidden" name="user_id" value="{{ user_id.id }}">
+    <button type="submit">Delete</button>
+      {% for message in task  %}
+    {{ message }}
+    {% endfor %}
+  </form>
+
 {% endblock %}
