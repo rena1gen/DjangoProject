@@ -1,7 +1,62 @@
-  <h2>Создание задачи</h2>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'CRM.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h2 class = "task__panel-title">Панель прикрепления сделок</h2>
+    </header>
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class = "task__panel">
+            <div class = "task__panel__container">
+                <form method="post">
+                <div class="task__box">
+                    {
+                    <input type="text " class = "task-input" placeholder="Введите название сделки" value="{{ form.message }}">
+
+                    <input type="date" class = "task-input" placeholder="Укажите дату сделки">
+                    {{ form.date_of_add }}
+                    <input type="number" class = "task-input" placeholder="Укажите сумму">
+                    {{ form.summa }}
+                    <span id = "button" class = "task-btn">
+                        <a>Прикрепить</a>
+                    </span>
+                </div>
+                </form>
+            </div>
+        </div>
+        </form>
+
+    <div class = "task__panel__list">
+        <div class="task__panel__container-list">
+        <div class = "task__list__title">Список задач</div>
+        <div class = "active__task"><input type="checkbox"></div>
+        <div class = "active__task"><input type="checkbox"></div>
+        <div class = "active__task"><input type="checkbox"></div>
+        <div class = "active__task"><input type="checkbox"></div>
+
+        <div class = "active__task__btn__container">
+        <div class = "active__task__btn"><a>Снять задачи</a></div>
+            <div class = "active__task__btn"><a>Рассчитать доход</a></div>
+
+
+    </div>
+</body>
+
+</html>
+
+
+<h2>Создание задачи</h2>
   <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
        {% for message in task  %}
     <br>{{ message }}
     {% endfor %}
