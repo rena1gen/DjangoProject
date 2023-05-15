@@ -36,5 +36,7 @@ class MyUser(AbstractBaseUser):
 class MyTask(models.Model):
     message = models.CharField()
     user = models.ForeignKey(MyUser,  on_delete=models.CASCADE)
+    created_date = models.CharField(default= 0)
+
     def __str__(self):
-        return self.message
+        return self.message+ ' '+self.created_date

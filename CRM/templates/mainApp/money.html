@@ -1,0 +1,15 @@
+  <h2>Создание задачи</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+       {% for message in task  %}
+    <br>{{ message }}
+    {% endfor %}
+    <button type="submit">Отправить</button>
+  </form>
+  <form method="post" action="{% url 'calc' %}">
+    {% csrf_token %}
+    <input type="hidden" name="user_id" value="{{ user_id.id }}">
+    <button type="submit">Delete</button>
+     {{ money }}
+  </form>

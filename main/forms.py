@@ -28,7 +28,7 @@ class MessageForm(forms.ModelForm):
 
     class Meta:
         model = MyTask
-        fields = ['message']
+        fields = ['message' , 'created_date']
 
     def save(self, user, commit=True):
         message1 = super(MessageForm, self).save(commit=False)

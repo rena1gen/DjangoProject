@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from main import views
-
+from CRM.views import MoneyView
 import main.views
 
 urlpatterns = [
@@ -29,4 +29,6 @@ urlpatterns = [
     path('logout', views.logout_view, name='logout'),
     path('taskmanager', views.MyTasks.as_view(), name='taskmanager'),
     path('delete-data/', views.MyTasks.delete_data, name='delete_data'),
+    path('money', MoneyView.as_view(), name= 'money'),
+    path('calc',MoneyView.calc , name = 'calc' )
 ]
