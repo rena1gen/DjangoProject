@@ -19,9 +19,7 @@
             <div class = "task__panel__container">
                 <form method="post">
                 <div class="task__box">
-                    {
                     <input type="text " class = "task-input" placeholder="Введите название сделки">
-
                     <input type="date" class = "task-input" placeholder="Укажите дату сделки">
                     {{ form.date_of_add }}
                     <input type="number" class = "task-input" placeholder="Укажите сумму">
@@ -45,11 +43,12 @@
             {% endfor %}
             <button type="submit">Отправить</button>
           </form>
+          <form method="post" action="{% url 'calc' %}">
 
-        <div class = "active__task__btn__container">
-        <div class = "active__task__btn"><a>Снять задачи</a></div>
-            <div class = "active__task__btn"><a>Рассчитать доход</a></div>
-
+                <div class = "active__task__btn__container">
+                <div class = "active__task__btn"><a>Снять задачи</a></div>
+                    <div class = "active__task__btn"><a>Рассчитать доход</a></div>
+          </form>
 
     </div>
 </body>
@@ -63,3 +62,11 @@
     <button type="submit">Delete</button>
      {{ money }}
   </form>
+
+<form method="post" action="{% url 'delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="user_id" value="{{ user_id.id }}">
+    <button type="submit">Delete</button>
+     {{ money }}
+  </form>
+

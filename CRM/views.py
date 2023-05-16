@@ -1,5 +1,5 @@
 from django.db.models import Sum
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .models import Money
 
@@ -30,3 +30,13 @@ class MoneyView(View):
         task = Money.objects.filter(user=request.user)
         if request.method == 'POST':
             return render(request, 'mainApp/money.html', {'task': task, 'money':money})
+
+    def delete(request):
+        user = request.user
+        data = Money.objects.filter(user=user)
+        if request.method == 'POST':
+            data.delete()
+        for task in data:
+            if task == task.delete():
+                task.delete()
+        return redirect('money')

@@ -30,5 +30,6 @@ urlpatterns = [
     path('taskmanager', views.MyTasks.as_view(), name='taskmanager'),
     path('delete-data/', views.MyTasks.delete_data, name='delete_data'),
     path('money', MoneyView.as_view(), name= 'money'),
-    path('calc',MoneyView.calc , name = 'calc' )
+    path('calc',MoneyView.calc , name = 'calc' ),
+    path('delete-zadacha', MoneyView.delete , name = 'delete')
 ]
