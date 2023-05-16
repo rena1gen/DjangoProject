@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<form method="post">
+  {% csrf_token %}
+  <ul>
+    {% for item in items %}
+      <li>
+        {{ item.name }}
+        <input type="checkbox" name="selected_items" value="{{ item.id }}">
+      </li>
+    {% endfor %}
+  </ul>
+  <button type="submit">Удалить выбранные элементы</button>
+</form>
+

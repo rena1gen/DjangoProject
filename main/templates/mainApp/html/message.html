@@ -16,6 +16,7 @@
       {% for message in task  %}
     {{ message }}
     {% endfor %}
+    <a href="{% url 'delete_selected' %}">Удалить выбранные элементы</a>/
   </form>
 
 {% endblock %}
