@@ -20,7 +20,7 @@
                 <form method="post">
                 <div class="task__box">
                     {
-                    <input type="text " class = "task-input" placeholder="Введите название сделки" value="{{ form.message }}">
+                    <input type="text " class = "task-input" placeholder="Введите название сделки">
 
                     <input type="date" class = "task-input" placeholder="Укажите дату сделки">
                     {{ form.date_of_add }}
@@ -37,11 +37,14 @@
 
     <div class = "task__panel__list">
         <div class="task__panel__container-list">
-        <div class = "task__list__title">Список задач</div>
-        <div class = "active__task"><input type="checkbox"></div>
-        <div class = "active__task"><input type="checkbox"></div>
-        <div class = "active__task"><input type="checkbox"></div>
-        <div class = "active__task"><input type="checkbox"></div>
+        <div class = "task__list__title">Список сделок</div>
+              <form method="POST">
+            {% csrf_token %}
+               {% for message in task  %}
+            <div class = "active__task"><input type="checkbox">{{ message }}</div>
+            {% endfor %}
+            <button type="submit">Отправить</button>
+          </form>
 
         <div class = "active__task__btn__container">
         <div class = "active__task__btn"><a>Снять задачи</a></div>
@@ -54,14 +57,6 @@
 </html>
 
 
-<h2>Создание задачи</h2>
-  <form method="POST">
-    {% csrf_token %}
-       {% for message in task  %}
-    <br>{{ message }}
-    {% endfor %}
-    <button type="submit">Отправить</button>
-  </form>
   <form method="post" action="{% url 'calc' %}">
     {% csrf_token %}
     <input type="hidden" name="user_id" value="{{ user_id.id }}">
