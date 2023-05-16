@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 from .forms import RegistrationForm
 from .forms import MyLoginForm
@@ -22,9 +22,11 @@ def login_view(request):
         form = MyLoginForm(request)
     return render(request, 'mainApp/html/login.html', {'form': form})
 
+
 def logout_view(request):
     logout(request)
     return redirect('login')
+
 
 def register(request):
     if request.method == 'POST':
@@ -46,7 +48,6 @@ class MyTasks(View):
         form = self.form_class()
         return render(request, self.template_name, {'form': form})
 
-
     def post(self, request):
         if request.method == 'POST':
             form = MessageForm(request.POST)
@@ -54,20 +55,30 @@ class MyTasks(View):
             if form.is_valid():
                 message = form.save(commit=False, user=request.user)
                 message.user = request.user
-            # привязываем сообщение к текущему пользователю
+                # привязываем сообщение к текущему пользователю
                 message.save()
                 return render(request, self.template_name, {'form': MessageForm(), 'task': task})
         return render(request, self.template_name, {'form': form})
 
     def delete_data(request):
-            user = request.user
-            data = MyTask.objects.filter(user=user)
-            if request.method == 'POST':
-                data.delete()
+        user = request.user
+        data = MyTask.objects.filter(user=user)
+        i = 0
+        if request.method == 'POST':
             for task in data:
-                if task == task.delete():
+                i += 1
+                if i == id:
                     task.delete()
-            return redirect('taskmanager')
+        return redirect('taskmanager')
+
+
+def delete_selected(request):
+    if request.method == 'POST':
+        MyTask.objects.filter(id__in=request.POST.getlist('selected_items')).delete()
+        return redirect('taskmanager')
+    else:
+        items = MyTask.objects.all()
+        return render(request, 'mainApp/html/delete_selected.html', {'items': items})
 
 
 def index(request):
@@ -76,5 +87,3 @@ def index(request):
 
 def about(request):
     return render(request, "mainApp/html/about.html")
-
-

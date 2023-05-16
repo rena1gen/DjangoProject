@@ -31,5 +31,6 @@ urlpatterns = [
     path('delete-data/', views.MyTasks.delete_data, name='delete_data'),
     path('money', MoneyView.as_view(), name= 'money'),
     path('calc',MoneyView.calc , name = 'calc' ),
-    path('delete-zadacha', MoneyView.delete , name = 'delete')
+    path('delete-zadacha', MoneyView.delete , name = 'delete'),
+    path('delete-selected/', views.delete_selected, name='delete_selected')
 ]
