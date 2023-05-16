@@ -71,14 +71,14 @@ class MyTasks(View):
                     task.delete()
         return redirect('taskmanager')
 
+    def delete_selected(request):
+        if request.method == 'POST':
+            MyTask.objects.filter(id__in=request.POST.getlist('selected_items')).delete()
+            return redirect('taskmanager')
+        else:
+            items = MyTask.objects.all()
+            return render(request, 'mainApp/html/delete_selected.html', {'items': items})
 
-def delete_selected(request):
-    if request.method == 'POST':
-        MyTask.objects.filter(id__in=request.POST.getlist('selected_items')).delete()
-        return redirect('taskmanager')
-    else:
-        items = MyTask.objects.all()
-        return render(request, 'mainApp/html/delete_selected.html', {'items': items})
 
 
 def index(request):
