@@ -8,6 +8,7 @@ from .forms import MyLoginForm
 from .models import MyTask
 from .forms import MessageForm
 from .models import MyUser
+from datetime import date
 
 
 def login_view(request):
@@ -55,6 +56,10 @@ class MyTasks(View):
             if form.is_valid():
                 message = form.save(commit=False, user=request.user)
                 message.user = request.user
+                if message.due_date < date.today():
+                    message.is_overdue = True
+                else:
+                    message.is_overdue = False
                 # привязываем сообщение к текущему пользователю
                 message.save()
                 return render(request, self.template_name, {'form': MessageForm(), 'task': task})

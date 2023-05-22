@@ -25,10 +25,11 @@ from .models import MyTask
 
 
 class MessageForm(forms.ModelForm):
+    due_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
 
     class Meta:
         model = MyTask
-        fields = ['message' , 'created_date']
+        fields = ['message' , 'due_date']
 
     def save(self, user, commit=True):
         message1 = super(MessageForm, self).save(commit=False)

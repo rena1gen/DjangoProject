@@ -4,9 +4,9 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Отправить</button>
-    {% for message in task  %}
-    {{ message }}
-    {% endfor %}
+     {% for t in task %}
+        <li {% if t.is_overdue %}style="color: red;"{% endif %}>{{ t }}</li>
+      {% endfor %}
   </form>
   <h1>Delete Data</h1>
   <form method="post" action="{% url 'delete_data' %}">

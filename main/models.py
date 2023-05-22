@@ -37,6 +37,7 @@ class MyTask(models.Model):
     message = models.CharField()
     user = models.ForeignKey(MyUser,  on_delete=models.CASCADE)
     created_date = models.CharField(default= 0)
-
+    due_date = models.DateField()
+    is_overdue = models.BooleanField(default=False)
     def __str__(self):
-        return self.message+ ' '+self.created_date
+        return self.message+ ' '+str(self.due_date)
