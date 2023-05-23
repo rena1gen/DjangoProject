@@ -1,22 +1,35 @@
+{% extends 'mainApp/html/templates.html' %}
+{% load static %}
 {% block content %}
-  <h2>Создание задачи</h2>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Отправить</button>
-     {% for t in task %}
-        <li {% if t.is_overdue %}style="color: red;"{% endif %}>{{ t }}</li>
-      {% endfor %}
-  </form>
-  <h1>Delete Data</h1>
-  <form method="post" action="{% url 'delete_data' %}">
-    {% csrf_token %}
-    <input type="hidden" name="user_id" value="{{ user_id.id }}">
-    <button type="submit">Delete</button>
-      {% for message in task  %}
-    {{ message }}
-    {% endfor %}
-    <a href="{% url 'delete_selected' %}">Удалить выбранные элементы</a>/
-  </form>
+<body>
+    <header>
+        <h2 class = "task__panel-title">Напоминание</h2>
+    </header>
+    <form method="POST">
+        {% csrf_token %}
+        <div class = "task__panel">
+            <div class = "task__panel__container">
+                <form method="post">
+                <div class="task__box">
+                    {{ form.as_p }}
+                    <button type="submit"class="task-input">Отправить</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        </form>
+
+    <div class = "task__panel__list">
+        <div class="task__panel__container-list">
+        <div class = "task__list__title">Список сделок</div>
+               {% for t in task %}
+                       <li {% if t.is_overdue %}style="color: red;"{% endif %}>{{ t }}</li>
+                    {% endfor %}
+               <a href="{% url 'delete_selected' %}">Удалить выбранные элементы</a>
+
+        </div>
+
 
 {% endblock %}
+</body>
+</html>

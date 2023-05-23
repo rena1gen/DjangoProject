@@ -18,7 +18,7 @@ def login_view(request):
             user = authenticate(request, email=form.cleaned_data['username'], password=form.cleaned_data['password'])
             if user is not None:
                 login(request, user)
-                return redirect('taskmanager')
+                return render(request, 'mainApp/html/Account.html')
     else:
         form = MyLoginForm(request)
     return render(request, 'mainApp/html/login.html', {'form': form})

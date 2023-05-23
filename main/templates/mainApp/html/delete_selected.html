@@ -1,14 +1,19 @@
-<!DOCTYPE html>
+{% extends 'mainApp/html/templates.html' %}
+{% block content %}
 <form method="post">
-  {% csrf_token %}
-  <ul>
-    {% for item in items %}
+   <div class = "task__panel__list">
+        <div class="task__panel__container-list">
+        <div class = "task__list__title">Выберите что нужно удалить</div>
+               {% for item in items %}
       <li>
         {{ item.message }}
         <input type="checkbox" name="selected_items" value="{{ item.id }}">
       </li>
     {% endfor %}
-  </ul>
-  <button type="submit">Удалить выбранные элементы</button>
+        <button type="submit"class="button">Удалить выбранные элементы</button>
+
+        </div>
+   </div>
 </form>
+{% endblock %}
 

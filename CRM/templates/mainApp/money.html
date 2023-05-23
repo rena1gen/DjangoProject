@@ -1,14 +1,16 @@
+{% extends 'mainApp/html/templates.html' %}
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'CRM.css' %}">
-    <title>Document</title>
-</head>
-<body>
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#<link rel="stylesheet" href="{% static 'CRM.css' %}">#}
+{#    <title>Document</title>#}
+{#</head>#}
+{#<body>#}
     <header>
         <h2 class = "task__panel-title">Панель прикрепления сделок</h2>
     </header>
@@ -22,7 +24,7 @@
                     {{ form.message }}
                     {{ form.date_of_add }}
                     {{ form.summa }}
-                    <button type="submit">Отправить</button>
+                    <button type="submit"class="task-input">Отправить</button>
                     </span>
                 </div>
                 </form>
@@ -43,17 +45,15 @@
               {% csrf_token %}
                 <div class = "active__task__btn__container">
                <input type="hidden" name="user_id" value="{{ user_id.id }}">
-                <button type="submit">Рассчитать доход</button>
+                <button type="submit"class="task-btn">Рассчитать доход</button>
                 {{ money }}
           </form>
         <form method="post" action="{% url 'delete' %}">
         {% csrf_token %}
         <input type="hidden" name="user_id" value="{{ user_id.id }}">
-        <button type="submit">Удалить данные</button>
+        <button type="submit"class="task-btn">Удалить данные</button>
         </form>
-
-
-
+{% endblock %}
     </div>
 </body>
 

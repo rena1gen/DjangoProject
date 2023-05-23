@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/AccountStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@200&family=Unbounded:wght@200;900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header class = "header">
+        <div class="header__container">
+            <div class="header__container__inner">
+                <div class="header__container__logo">
+                    <img src="{% static 'Images/Header/Logo.png'%}" alt="">
+                </div>
+                <nav class= "navbar">
+                    <a class = "navbar__links" href="/about">About</a>
+                    <a class = "navbar__links" href="">Help</a>
+                    <a class = "navbar__links" href="">Features</a>
+                    <a class = "navbar__links" href="">Signup</a>  
+                </nav>
+                <div class="button">
+                    <a class = "button__link" href="/register">Request a demo</a>
+                </div>
+            </div>
+        </div>
+    </header> 
+    <div class="lk__container">
+        <div class="lk__content__container">
+            <div class="lk__profile__container">
+            <div class="lk__profile__image">
+                <div class="lk__profile__image-bg">
+                    <img src="{% static 'Images/Photo.png' %}" alt="">
+
+                </div>
+                <img src="" alt="">
+            </div>
+            <div class="lk__profile__info">
+                <div class="lk__profile__info__inner">
+                    {{ user.username }}
+                    <div class="icon">
+                        <a href=""><img class = "i-img" src="https://cdn3.iconfinder.com/data/icons/social-productivity-line-art-5/128/history-edit-512.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="lk__profile__info__inner-status">
+                    Premium user
+                </div>
+            </div>
+            <div class="profile__buttons">
+                <div class="profile__crm__button">
+                    <a href="/taskmanager">Перейти в CRM</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class = "inputs__container">
+        <div class = "input__info__container">
+
+            </div>
+        <div class = "inp">
+            <input type="text" placeholder="Введите Username">
+        </div>
+        <div class="inp__button">
+            <input type="submit" value="Поменять Username">
+        </div>
+        <div class = "inp">
+            <input type="text" placeholder="Введите Email">
+        </div>
+        <div class="inp__button">
+            <input type="submit" value="Поменять Email">
+        </div>
+        <div class = "inp">
+            <input type="text" placeholder="Введите пароль">
+        </div>
+
+        <div class = "inp">
+            <input type="text" placeholder="Повторите пароль">
+        </div>
+
+        <div class="inp__button">
+            <input type="submit" value="Поменять пароль">
+        </div>
+    </div> 
+</body>
+</html>
