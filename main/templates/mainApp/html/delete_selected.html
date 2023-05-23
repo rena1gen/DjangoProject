@@ -1,6 +1,7 @@
 {% extends 'mainApp/html/templates.html' %}
 {% block content %}
 <form method="post">
+     {% csrf_token %}
    <div class = "task__panel__list">
         <div class="task__panel__container-list">
         <div class = "task__list__title">Выберите что нужно удалить</div>
@@ -11,7 +12,6 @@
       </li>
     {% endfor %}
         <button type="submit"class="button">Удалить выбранные элементы</button>
-
         </div>
    </div>
 </form>

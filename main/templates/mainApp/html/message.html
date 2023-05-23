@@ -22,12 +22,26 @@
     <div class = "task__panel__list">
         <div class="task__panel__container-list">
         <div class = "task__list__title">Список сделок</div>
+         <form method="post">
+         <a href="{% url 'delete_selected' %}">Удалить выбранные элементы</a>
+              {% csrf_token %}
                {% for t in task %}
                        <li {% if t.is_overdue %}style="color: red;"{% endif %}>{{ t }}</li>
                     {% endfor %}
-               <a href="{% url 'delete_selected' %}">Удалить выбранные элементы</a>
+          </form>
+             <form method="post" action="/money">
+              {% csrf_token %}
+                <div class = "active__task__btn__container">
+                <button type="submit"class="task-btn">Перейти в другой раздел</button>
+          </form>
+         <form method="post" action="/login">
+              {% csrf_token %}
+                <div class = "active__task__btn__container">
+                <button type="submit"class="task-btn">Перейти в личный кабинет</button>
+          </form>
 
         </div>
+
 
 
 {% endblock %}
