@@ -32,5 +32,6 @@ urlpatterns = [
     path('money', MoneyView.as_view(), name= 'money'),
     path('calc',MoneyView.calc , name = 'calc' ),
     path('delete-zadacha', MoneyView.delete , name = 'delete'),
-    path('delete-selected', views.MyTasks.delete_selected, name='delete_selected')
+    path('delete-selected', views.MyTasks.delete_selected, name='delete_selected'),
+    path('change-password', views.change_password, name='change_password')
 ]

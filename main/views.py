@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import redirect
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.views.generic import View
 from .forms import RegistrationForm
 from .forms import MyLoginForm
@@ -84,6 +85,19 @@ class MyTasks(View):
             items = MyTask.objects.all()
             return render(request, 'mainApp/html/delete_selected.html', {'items': items})
 
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Важно обновить пароль в сессии
+            return redirect('login')
+        else:
+            messages.error(request, 'Попробуйте снова.', extra_tags='alert alert-danger')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'mainApp/html/change_passwort.html', {'form': form})
 
 
 def index(request):

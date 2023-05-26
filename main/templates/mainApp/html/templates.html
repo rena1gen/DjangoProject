@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="{% static 'css/HeaderCss/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/reg.css' %}">
     <link rel="stylesheet" href="{% static 'CRM.css' %}">
+    <link rel="stylesheet" href="{% static 'css/AccountStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Title</title>
 </head>
 <body>
@@ -13,10 +16,9 @@
         <div class="header__container">
             <div class="header__container__inner">
                 <div class="header__container__logo">
-                    <img src="{% static 'Images/Header/Logo.png'%}" alt="">
+                    <a href="{% url 'index' %}"><img src="{% static 'Images/Header/Logo.png'%}"></a>
                 </div>
                 <nav class= "navbar">
-                    <a class = "navbar__links" href="/about">О нас</a>
                     <a class = "navbar__links" href="">Поддержка</a>
                     <a class = "navbar__links" href="">Документы</a>
                     <a class = "navbar__links" href="/login">Авторизация</a>

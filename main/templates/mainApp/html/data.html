@@ -13,10 +13,10 @@
         <div class="header__container">
             <div class="header__container__inner">
                 <div class="header__container__logo">
-                    <img src="{% static 'Images/Header/Logo.png'%}" alt="">
+                    <a href="{% url 'index' %}"><img src="{% static 'Images/Header/Logo.png'%}"></a>
+
                 </div>
                 <nav class= "navbar">
-                    <a class = "navbar__links" href="/about">О нас</a>
                     <a class = "navbar__links" href="">Поддержка</a>
                     <a class = "navbar__links" href="">Документы</a>
                     <a class = "navbar__links" href="">Авторизация</a>
@@ -44,72 +44,72 @@
                 </div>
             </div>
         </div>
-    </div>x
-    <div class="intro__footer">
-        <div class="intro__footer__container">
-            <div class="intro__footer__container__image">
-                <img src="{%  static  'Images/IntroFooter/image2.png'%}" alt="">
-            </div>
-
-            <div class="intro__footer__container__info">
-                <div class="intro__footer__container__info-title">
-                    We are a high-level
-                    data<br>
-                    storage bank
-                </div>
-                <div class="intro__footer__container__info-text">
-                    The place to store various data that you can access at any<br> time through the internet
-                    and where you can carry it.<br> 
-                    This very flexible storage area has a high level of security.<br>
-                    To enter into your own data 
-                    you must enter the password<br> that you created when you registered in this Data<br> Warehouse. 
-                </div>
-            </div>
-        </div>
     </div>
-   <div class="features">
-        <div class="features-title">
-                Features
-        </div>
-        <div class="features-subtitle">
-            Some of the features and advantages that we provide for those of you<br>
-            who store data in this Data Warehouse.
-        </div>
-        </div>
-   </div>
-   <div class="features__cards">
-        <div class="features__card__container-f">
-            <div class="features__card-1">
-                <img src="{%  static 'Images/Features/01.png' %} alt="">
-            </div>
-            <div class="features__card-2">
-                <img src="{% static  'Images/Features/2.png'%}" alt="">
-            </div>
-        </div>
-        <div class="features__card__container-s">
-            <div class="features__card-3">
-                <img src="{% static  'Images/Features/3.png'%}" alt="">
-            </div>
-            <div class="features__card-4">
-                <img src="{% static 'Images/Features/4.png'%}" alt="">
-            </div>
-        </div>
-   </div>
-   <div class="footer">
-        <div class="footer__container">
-            <div class="footer__container__inner">
-                <div class = "footer__container__offer-title">
-                    Try for free!
-                </div>
-                <div class = "footer__container__offer-descritption">
-                    Get limited 1 week free try our features!
-                </div>
-                </div>
-            <div class="footer__buttons">
-                <div class="footer__button-1">Learn more</div>
-                <div class="footer__button-2">Request a demo</div>
-            </div>
-       </div>
-       </div>
-</body>
-</html>
+{#    <div class="intro__footer">#}
+{#        <div class="intro__footer__container">#}
+{#            <div class="intro__footer__container__image">#}
+{#                <img src="{%  static  'Images/IntroFooter/image2.png'%}" alt="">#}
+{#            </div>#}
+{##}
+{#            <div class="intro__footer__container__info">#}
+{#                <div class="intro__footer__container__info-title">#}
+{#                    We are a high-level#}
+{#                    data<br>#}
+{#                    storage bank#}
+{#                </div>#}
+{#                <div class="intro__footer__container__info-text">#}
+{#                    The place to store various data that you can access at any<br> time through the internet#}
+{#                    and where you can carry it.<br> #}
+{#                    This very flexible storage area has a high level of security.<br>#}
+{#                    To enter into your own data #}
+{#                    you must enter the password<br> that you created when you registered in this Data<br> Warehouse. #}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#   <div class="features">#}
+{#        <div class="features-title">#}
+{#                Features#}
+{#        </div>#}
+{#        <div class="features-subtitle">#}
+{#            Some of the features and advantages that we provide for those of you<br>#}
+{#            who store data in this Data Warehouse.#}
+{#        </div>#}
+{#        </div>#}
+{#   </div>#}
+{#   <div class="features__cards">#}
+{#        <div class="features__card__container-f">#}
+{#            <div class="features__card-1">#}
+{#                <img src="{%  static 'Images/Features/01.png' %} alt="">#}
+{#            </div>#}
+{#            <div class="features__card-2">#}
+{#                <img src="{% static  'Images/Features/2.png'%}" alt="">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="features__card__container-s">#}
+{#            <div class="features__card-3">#}
+{#                <img src="{% static  'Images/Features/3.png'%}" alt="">#}
+{#            </div>#}
+{#            <div class="features__card-4">#}
+{#                <img src="{% static 'Images/Features/4.png'%}" alt="">#}
+{#            </div>#}
+{#        </div>#}
+{#   </div>#}
+{#   <div class="footer">#}
+{#        <div class="footer__container">#}
+{#            <div class="footer__container__inner">#}
+{#                <div class = "footer__container__offer-title">#}
+{#                    Try for free!#}
+{#                </div>#}
+{#                <div class = "footer__container__offer-descritption">#}
+{#                    Get limited 1 week free try our features!#}
+{#                </div>#}
+{#                </div>#}
+{#            <div class="footer__buttons">#}
+{#                <div class="footer__button-1">Learn more</div>#}
+{#                <div class="footer__button-2">Request a demo</div>#}
+{#            </div>#}
+{#       </div>#}
+{#       </div>#}
+{#</body>#}
+{#</html>#}

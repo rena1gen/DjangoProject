@@ -13,24 +13,23 @@
     <title>Document</title>
 </head>
 <body>
-    <header class = "header">
+      <header class = "header">
         <div class="header__container">
             <div class="header__container__inner">
                 <div class="header__container__logo">
-                    <img src="{% static 'Images/Header/Logo.png'%}" alt="">
+                    <a href="{% url 'index' %}"><img src="{% static 'Images/Header/Logo.png'%}"></a>
                 </div>
                 <nav class= "navbar">
-                    <a class = "navbar__links" href="/about">About</a>
-                    <a class = "navbar__links" href="">Help</a>
-                    <a class = "navbar__links" href="">Features</a>
-                    <a class = "navbar__links" href="">Signup</a>  
+                    <a class = "navbar__links" href="">Поддержка</a>
+                    <a class = "navbar__links" href="">Документы</a>
+                    <a class = "navbar__links" href="/login">Авторизация</a>
                 </nav>
                 <div class="button">
-                    <a class = "button__link" href="/register">Request a demo</a>
+                    <a class = "button__link" href="/register">Регистрация</a>
                 </div>
             </div>
         </div>
-    </header> 
+    </header>
     <div class="lk__container">
         <div class="lk__content__container">
             <div class="lk__profile__container">
@@ -56,37 +55,39 @@
                 <div class="profile__crm__button">
                     <a href="/taskmanager">Перейти в CRM</a>
                 </div>
-            </div>
+                <div class="profile__crm__button">
+                    <a href="/change-password">Изменить пароль</a>
+                </div>
             </div>
         </div>
     </div>
-    <div class = "inputs__container">
-        <div class = "input__info__container">
-
-            </div>
-        <div class = "inp">
-            <input type="text" placeholder="Введите Username">
-        </div>
-        <div class="inp__button">
-            <input type="submit" value="Поменять Username">
-        </div>
-        <div class = "inp">
-            <input type="text" placeholder="Введите Email">
-        </div>
-        <div class="inp__button">
-            <input type="submit" value="Поменять Email">
-        </div>
-        <div class = "inp">
-            <input type="text" placeholder="Введите пароль">
-        </div>
-
-        <div class = "inp">
-            <input type="text" placeholder="Повторите пароль">
-        </div>
-
-        <div class="inp__button">
-            <input type="submit" value="Поменять пароль">
-        </div>
-    </div> 
+{#    <div class = "inputs__container">#}
+{#        <div class = "input__info__container">#}
+{##}
+{#            </div>#}
+{#        <div class = "inp">#}
+{#            <input type="text" placeholder="Введите Username">#}
+{#        </div>#}
+{#        <div class="inp__button">#}
+{#            <input type="submit" value="Поменять Username">#}
+{#        </div>#}
+{#        <div class = "inp">#}
+{#            <input type="text" placeholder="Введите Email">#}
+{#        </div>#}
+{#        <div class="inp__button">#}
+{#            <input type="submit" value="Поменять Email">#}
+{#        </div>#}
+{#        <div class = "inp">#}
+{#            <input type="text" placeholder="Введите пароль">#}
+{#        </div>#}
+{##}
+{#        <div class = "inp">#}
+{#            <input type="text" placeholder="Повторите пароль">#}
+{#        </div>#}
+{##}
+{#        <div class="inp__button">#}
+{#            <input type="submit" value="Поменять пароль">#}
+{#        </div>#}
+{#    </div> #}
 </body>
 </html>

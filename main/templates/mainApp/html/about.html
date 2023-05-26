@@ -1,65 +1,27 @@
+{% extends 'mainApp/html/templates.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/about.css' %}">
-    <title>О компании</title>
-</head>
-<body>
- <header>
-  <h1>ACR-CRM</h1>
-  <nav>
-   <ul>
-    <li><a href="#about">О нас</a></li>
-    <li><a href="#services">Услуги</a></li>
-    <li><a href="#team">Наша команда</a></li>
-    <li><a href="#contact">Контакты</a></li>
-   </ul>
-  </nav>
- </header>
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/dataStyle.css' %}">
+<div class="intro__footer">
+        <div class="intro__footer__container">
+            <div class="intro__footer__container__image">
+                <img src="{%  static  'Images/IntroFooter/image2.png'%}" alt="">
+            </div>
 
- <main>
-  <section id="about">
-   <h2>Немного про CRM</h2>
-   <p>CRM (Customer Relationship Management) – это система управления взаимоотношениями с клиентами, которая позволяет организовать эффективную работу с клиентской базой, отслеживать и анализировать все контакты с клиентами, управлять продажами и маркетингом, а также повышать уровень лояльности клиентов.
-Система CRM является незаменимым инструментом для бизнеса всех масштабов и отраслей, позволяющим повысить эффективность работы, увеличить продажи и улучшить качество обслуживания клиентов. С ее помощью можно автоматизировать все процессы, связанные с работой с клиентами, от создания базы клиентов и управления продажами до анализа результатов и улучшения качества обслуживания.
-CRM-системы могут быть различными по функционалу и возможностям, но все они имеют общую цель – улучшение взаимодействия с клиентами и повышение эффективности бизнеса. Если вы хотите повысить уровень лояльности клиентов, улучшить качество обслуживания, увеличить продажи и оптимизировать работу вашей компании, то CRM – это то, что вам нужно!</p>
-   <p>Наша компания была основана в 2023 году и за это время мы успели много добиться</p>
-  </section>
-
-  <section id="services">
-   <h2>Услуги</h2>
-   <ul>
-    <li>Услуга 1</li>
-    <li>Услуга 2</li>
-    <li>Услуга 3</li>
-    <li>Услуга 4</li>
-   </ul>
-  </section>
-
-  <section id="team">
-   <h2>Наша команда</h2>
-   <p>Наша команда состоит из высококвалифицированных специалистов в области...</p>
-   <ul>
-    <li>Имя Фамилия - должность</li>
-    <li>Имя Фамилия - должность</li>
-    <li>Имя Фамилия - должность</li>
-   </ul>
-  </section>
-
-  <section id="contact">
-   <h2>Контакты</h2>
-   <p>Адрес: г. Город, ул. Улица, д. Дом</p>
-   <p>Телефон: +7 (999) 999-99-99</p>
-   <p>E-mail: info@company.com</p>
-  </section>
- </main>
-
- <footer>
-  <p>© 2021 Название компании. Все права защищены.</p>
- </footer>
-</body>
-</html>
+            <div class="intro__footer__container__info">
+                <div class="intro__footer__container__info-title">
+                    We are a high-level
+                    data<br>
+                    storage bank
+                </div>
+                <div class="intro__footer__container__info-text">
+                    The place to store various data that you can access at any<br> time through the internet
+                    and where you can carry it.<br>
+                    This very flexible storage area has a high level of security.<br>
+                    To enter into your own data
+                    you must enter the password<br> that you created when you registered in this Data<br> Warehouse.
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

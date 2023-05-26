@@ -1,7 +1,8 @@
 from django import forms
 from django.forms import TextInput
+from .models import MyTask
 
-from .models import MyUser,MyTask
+from .models import MyUser
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -23,6 +24,8 @@ class RegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
 from .models import MyTask
 
 
@@ -35,7 +38,6 @@ class MessageForm(forms.ModelForm):
         widgets = {"message": TextInput(attrs={'class': 'task-input', 'placeholder': 'Введите напоминание'}),
 
                    }
-
 
     def save(self, user, commit=True):
         message1 = super(MessageForm, self).save(commit=False)
