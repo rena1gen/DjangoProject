@@ -3,10 +3,11 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.views.decorators.http import require_POST
 from django.views.generic import View
 from .forms import RegistrationForm
 from .forms import MyLoginForm
-from .models import MyTask
+from .models import MyTask, Order
 from .forms import MessageForm
 from datetime import date
 
@@ -105,7 +106,21 @@ def index(request):
 
 
 def about(request):
-    return render(request, "mainApp/html/about.html")
+    return render(request, "mainApp/html/features.html")
 
 def price(request):
     return render(request, "mainApp/html/pricing.html")
+
+
+
+def purchase(request):
+    email = request.POST.get('email_id')
+    if Order.objects.get(email=email):
+        purchase = Order.objects.get(email=email)
+        purchase.paid = True
+        purchase.save()
+        return render(request, 'mainApp/html/Account.html')
+    else:
+        return render(request , 'mainApp/html/login.html')
+
+

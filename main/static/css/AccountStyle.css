@@ -36,9 +36,9 @@
     margin-right: auto;
     border-radius: 100px;
 }
-img{
+.lk__profile__image-bg img{
     width: 200px;
-    height: 200p;
+    height: 200px;
 }
 .lk__profile__info__inner{
     display: flex;

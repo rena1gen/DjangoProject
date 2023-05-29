@@ -41,3 +41,8 @@ class MyTask(models.Model):
     is_overdue = models.BooleanField(default=False)
     def __str__(self):
         return self.message+ ' '+str(self.due_date)
+
+
+class Order(models.Model):
+    email = models.ForeignKey(MyUser , on_delete=models.CASCADE)
+    paid = models.BooleanField(default=False)

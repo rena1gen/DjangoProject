@@ -1,0 +1,44 @@
+{% extends 'mainApp/html/templates.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/features.css' %}">
+    <title>Document</title>
+</head>}
+<body>
+{% block content %}
+    <div class="features">
+        <div class="features-title">
+                Features
+        </div>
+        <div class="features-subtitle">
+            Some of the features and advantages that we provide for those of you<br>
+            who store data in this Data Warehouse.
+        </div>
+        </div>
+   </div>
+   <div class="features__cards">
+        <div class="features__card__container-f">
+            <div class="features__card-1">
+                <img src="{% static 'Images/Features/4.png'%}"alt="">
+            </div>
+            <div class="features__card-2">
+                <img src="{% static  'Images/Features/3.png'%}" alt="">
+            </div>
+        </div>
+        <div class="features__card__container-s">
+            <div class="features__card-3">
+                <img src="{% static  'Images/Features/3.png'%}" alt="">
+            </div>
+            <div class="features__card-4">
+                <img src="{% static 'Images/Features/4.png'%}" alt="">
+            </div>
+        </div>
+   </div>
+{% endblock %}
+</body>
+</html>

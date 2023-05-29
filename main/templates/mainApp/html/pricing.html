@@ -20,8 +20,7 @@
                 </div>
                 <nav class= "navbar">
                    <a class = "navbar__links" href="/price">Цены</a>
-                    <a class = "navbar__links" href="">Поддержка</a>
-                    <a class = "navbar__links" href="">Документы</a>
+                    <a class = "navbar__links" href="/about">Особенности</a>
                     <a class = "navbar__links" href="/login">Авторизация</a>
                 </nav>
                 <div class="button">
@@ -48,11 +47,14 @@
                         <li>личные консультации по вопросом</li>
                         <ul>
                 </div>
-                <div class="content__container__price__button">
-                    <div class="ccp__button">
-                    <a href="">Купить</a>
-                    </div>
+                <form method="post" action="/price-sus">
+                    {% csrf_token %}
+                    <div class="content__container__price__button">
+
+                    <button type="submit"class="ccp__button">КУПИТЬ</button>
+
                 </div>
+                </form>
             </div>
             <div class = "content__container__price">
                 <div class="content__container__price__title">
