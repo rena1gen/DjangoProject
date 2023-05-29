@@ -53,6 +53,10 @@
         <input type="hidden" name="user_id" value="{{ user_id.id }}">
         <button type="submit"class="task-btn">Удалить данные</button>
         </form>
+  <form method="post" action="/taskmanager">
+              {% csrf_token %}
+                <div class = "active__task__btn__container">
+                <button type="submit"class="task-btn">Перейти в другой раздел</button>
 {% endblock %}
     </div>
 </body>

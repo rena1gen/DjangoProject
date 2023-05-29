@@ -1,0 +1,106 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/pricingStyle.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header class = "header">
+        <div class="header__container">
+            <div class="header__container__inner">
+                <div class="header__container__logo">
+                    <a href="{% url 'index' %}"><img src="{% static 'Images/Header/Logo.png'%}"></a>
+                </div>
+                <div class="header__container__logo">
+                </div>
+                <nav class= "navbar">
+                   <a class = "navbar__links" href="/price">Цены</a>
+                    <a class = "navbar__links" href="">Поддержка</a>
+                    <a class = "navbar__links" href="">Документы</a>
+                    <a class = "navbar__links" href="/login">Авторизация</a>
+                </nav>
+                <div class="button">
+                    <a class = "button__link" href="/register">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class = "content__container">
+        <div class = "content__container__flex">
+            <div class = "content__container__price">
+                <div class="content__container__price__title">
+                    Тариф Cтарт
+                </div>
+                <div class="content__container__price__image">
+                    <img src="{% static 'Images/image6 1.png' %}" alt="">
+                </div>
+                <div class="content__container__price__subtitle">
+                    <ul>
+                        Тариф старт включает в себя:<p>
+                        <li>пре доступ к CRM системе</li>
+                        <li>полный доступ к такс менеджеру</li>
+                        <li>техническая поддержка</li>
+                        <li>личные консультации по вопросом</li>
+                        <ul>
+                </div>
+                <div class="content__container__price__button">
+                    <div class="ccp__button">
+                    <a href="">Купить</a>
+                    </div>
+                </div>
+            </div>
+            <div class = "content__container__price">
+                <div class="content__container__price__title">
+                    Тариф Медиум
+                </div>
+                <div class="content__container__price__image">
+                    <img src="{% static 'Images/image4.png' %}" alt="">
+                </div>
+                <div class="content__container__price__subtitle">
+                    <ul>
+                        Тариф старт включает в себя:<p>
+                        <li>пре доступ к CRM системе</li>
+                        <li>полный доступ к такс менеджеру</li>
+                        <li>техническая поддержка</li>
+                        <li>личные консультации по вопросом</li>
+                        <ul>
+                </div>
+                <div class="content__container__price__button">
+                    <div class="ccp__button">
+                    <a href="">Купить</a>
+                    </div>
+                </div>
+            </div>
+            <div class = "content__container__price">
+                <div class="content__container__price__title">
+                    Тариф VIP
+                </div>
+                <div class="content__container__price__image">
+                    <img src="{% static 'Images/image3 1.png' %}" alt="">
+                </div>
+                <div class="content__container__price__subtitle">
+                    <ul>
+                    Тариф старт включает в себя:<p>
+                    <li>пре доступ к CRM системе</li>
+                    <li>полный доступ к такс менеджеру</li>
+                    <li>техническая поддержка</li>
+                    <li>личные консультации по вопросом</li>
+                    <ul>
+
+                </div>
+                <div class="content__container__price__button">
+                    <div class="ccp__button">
+                    <a href="">Купить</a>
+                    </div>
+                </div>
+            </div>
+           
+            </div>
+    </div>
+</body>
+</html>

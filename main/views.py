@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import login_required
+
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import redirect
 from django.shortcuts import render
@@ -8,7 +8,6 @@ from .forms import RegistrationForm
 from .forms import MyLoginForm
 from .models import MyTask
 from .forms import MessageForm
-from .models import MyUser
 from datetime import date
 
 
@@ -27,7 +26,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
 
 
 def register(request):
@@ -79,6 +78,7 @@ class MyTasks(View):
 
     def delete_selected(request):
         if request.method == 'POST':
+            MyTask.objects.filter(user=request.user)
             MyTask.objects.filter(id__in=request.POST.getlist('selected_items')).delete()
             return redirect('taskmanager')
         else:
@@ -106,3 +106,6 @@ def index(request):
 
 def about(request):
     return render(request, "mainApp/html/about.html")
+
+def price(request):
+    return render(request, "mainApp/html/pricing.html")
